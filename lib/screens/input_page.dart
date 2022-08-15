@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/components/icon_content.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:bmi_calculator/constants.dart';
@@ -7,6 +6,7 @@ import 'package:bmi_calculator/screens/results_page.dart';
 import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/components/round_icon_button.dart';
 import 'package:bmi_calculator/calculator_brain.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 enum Gender {
   male,
@@ -19,7 +19,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Gender selectedGender;
+  Gender? selectedGender;
   int height = 180;
   int weight = 60;
   int age = 20;
@@ -119,6 +119,7 @@ class _InputPageState extends State<InputPage> {
                   ),
                 ],
               ),
+              onPress: () {},
             ),
           ),
           Expanded(
@@ -163,6 +164,7 @@ class _InputPageState extends State<InputPage> {
                         ),
                       ],
                     ),
+                    onPress: () {},
                   ),
                 ),
                 Expanded(
@@ -206,6 +208,7 @@ class _InputPageState extends State<InputPage> {
                         )
                       ],
                     ),
+                    onPress: () {},
                   ),
                 ),
               ],
@@ -221,10 +224,10 @@ class _InputPageState extends State<InputPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => ResultsPage(
-                        bmiResult: calc.calculateBMI(),
-                        resultText: calc.getResult(),
-                        interpretation: calc.getInterpretation(),
-                      ),
+                    bmiResult: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                    interpretation: calc.getInterpretation(),
+                  ),
                 ),
               );
             },
